@@ -1,0 +1,123 @@
+{
+    "Products": [
+  {
+    "id": "1",
+    "title": "Toyota Camry 2.5 AT",
+    "price": 2650000,
+    "discount": 5,
+    "quantiti":0,
+    "image": "https://cloud.encarrus.ru/343262/343262_001.jpg",
+    "description": "Комфортный и надёжный седан бизнес-класса с бензиновым двигателем 2.5 л и автоматической коробкой передач.",
+    "variants": [
+      { "color": "Белый перламутр", "transmission": "AT", "engine": "2.5L", "price": 2650000 },
+      { "color": "Чёрный", "transmission": "AT", "engine": "3.5L", "price": 3100000 }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "BMW X5 xDrive30d",
+    "price": 5850000,
+    "discount": 7,
+    "quantiti":10,
+    "image": "https://youcar.kz/img/uploads/prebg/1702038491_ecfa9f2ec96678355dec.jpg",
+    "description": "Полный привод, дизельный двигатель 3.0 л, богатая комплектация и премиальный комфорт.",
+    "variants": [
+      { "color": "Синий металлик", "transmission": "AT", "engine": "3.0L Diesel", "price": 5850000 },
+      { "color": "Белый", "transmission": "AT", "engine": "3.0L Diesel", "price": 5920000 }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Hyundai Tucson 2.0 4WD",
+    "price": 2350000,
+    "discount": 3,
+    "quantiti":5,
+    "image": "https://cloud.encarrus.ru/340643/340643_001.jpg",
+    "description": "Компактный кроссовер с полным приводом, бензиновым мотором 2.0 л и современным дизайном.",
+    "variants": [
+      { "color": "Серебристый", "transmission": "AT", "engine": "2.0L", "price": 2350000 },
+      { "color": "Красный", "transmission": "MT", "engine": "2.0L", "price": 2200000 }
+    ]
+  },
+      {
+      "id": 4,
+      "title": "Kia Sportage 1.6T AWD",
+      "price": 2450000,
+      "discount": 4,
+      "quantiti":8,
+      "image": "https://cloud.encarrus.ru/342238/342238_001.jpg",
+      "description": "Стильный кроссовер с турбированным мотором 1.6 л, полным приводом и современным интерьером."
+    },
+    {
+      "id": 5,
+      "title": "Mercedes-Benz E 200",
+      "price": 4950000,
+      "discount": 6,
+      "quantiti":4,
+      "image": "https://cloud.encarrus.ru/342903/342903_001.jpg",
+      "description": "Элегантный седан с бензиновым двигателем 2.0 л, автоматической коробкой передач и премиальной отделкой салона."
+    },
+    {
+      "id": 6,
+      "title": "Audi Q7 45 TDI quattro",
+      "price": 6550000,
+      "discount": 8,
+      "quantiti":2,
+      "image": "https://cars.import-motor.com/encar/audi/q7/2022/40137874/ENCAR40137874-1.webp",
+      "description": "Просторный премиальный внедорожник с дизельным двигателем 3.0 л и полным приводом quattro."
+    }
+],
+
+"articles": [
+  {
+      "id": "1",
+      "title": "Лучшие шины для зимнего сезона 2025",
+      "content": "Обзор топовых моделей зимних шин, которые обеспечат максимальное сцепление и безопасность на дороге в холодное время года.",
+      "author": "Аман",
+      "date": "2025-08-12",
+      "image": "https://object.pscloud.io/cms/cms/Uploads/winter_tyres_review_zastavka_01.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Как правильно выбрать диски для вашего автомобиля",
+      "content": "Советы по подбору дисков с учётом параметров автомобиля, стиля вождения и внешнего вида.",
+      "author": "Аман",
+      "date": "2025-08-11",
+      "image": "https://ivanor.ru/assets/images/resources/743/1.jpg"
+    },
+    {
+      "id": "3",
+      "title": "ТОП-5 популярных кроссоверов 2025 года",
+      "content": "Рассматриваем лучшие модели кроссоверов, которые сочетают в себе комфорт, безопасность и экономичность.",
+      "author": "Аман",
+      "date": "2025-08-10",
+      "image": "https://i.ytimg.com/vi/iVas1htYmHo/maxresdefault.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Преимущества установки адаптивной подвески",
+      "content": "Как адаптивная подвеска улучшает управляемость и комфорт езды в различных условиях.",
+      "author": "Аман",
+      "date": "2025-08-09",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_jWmcbQkEIc7GQ252gBLzzS65wKW7GFE3ZA&s"
+    },
+    {
+      "id": "5",
+      "title": "Что нужно знать перед покупкой подержанного автомобиля",
+      "content": "Полезные рекомендации по проверке технического состояния и истории автомобиля перед покупкой.",
+      "author": "Аман",
+      "date": "2025-08-08",
+      "image": "https://i.ytimg.com/vi/WQOUo1jg_Ms/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD2vcIAtmAhhGf_gHbnj4EE2kK_VQ"
+    },
+    {
+      "id": "6",
+      "title": "Советы по уходу за лакокрасочным покрытием",
+      "content": "Как защитить кузов автомобиля от коррозии и сохранить блеск надолго.",
+      "author": "Аман",
+      "date": "2025-08-07",
+      "image": "https://crystal-auto.ru/wp-content/uploads/2024/10/top-sposoby-zashhity-lakokrasochnogo-pokrytiya-avtomobilya.png"
+    }
+]
+
+}
+
