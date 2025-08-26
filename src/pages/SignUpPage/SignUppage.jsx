@@ -59,7 +59,7 @@ const SignUpPage = () => {
                     fontWeight="700"
                     paddingBottom="20px"
                 >
-                    Sign In
+                    Sign Up
                 </Typography>
                 <form>
                     <Box
