@@ -1,7 +1,9 @@
 import { useContext, useEffect } from "react"
 import ArticlesCard from "../ArticlesCard/ArticlesCard"
-import { ArticleContext } from "../../../../../../Context/ArticleContext/ArticleContext"
+
 import { Box } from "@mui/material";
+import { ArticleContext } from "../../../../../../Context/ArticleContext/ArticleContext";
+
 
 const ArticlesList = () => {
 

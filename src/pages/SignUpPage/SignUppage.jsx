@@ -1,109 +1,44 @@
-import { Box, Button, Container, TextField, Typography } from "@mui/material";
-import { useContext, useState } from "react";
-import { AuthContext } from "../../../Context/AuthContext/AuthContext";
+import { useState, useContext } from "react";
+import { Box, Button, TextField, Typography } from "@mui/material";
+import { AuthContext } from "../../../Context/AuthContext/AuthContexProvider";
+
 
 const SignUpPage = () => {
-    const { signUp } = useContext(AuthContext);
+  const { signUp } = useContext(AuthContext);
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
 
-    const [emailValue, setEmailValue] = useState("");
-    const [passwordValue, setPasswordValue] = useState("");
-    const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
-    const [confirmPasswordError, setConfirmPasswordError] = useState("");
-    const [emailRequiredEror, setemailRequiredEror] = useState("");
-    const [passwordRequiredEror, setPasswordRequiredEror] = useState("");
-    const [ConfirmpasswordRequiredEror, setConfirmPasswordRequiredEror] = useState("");
+  const handleClick = () => {
+    if (!email || !username || !password || !confirmPassword) {
+      setError("Все поля обязательны");
+      return;
+    }
+    if (password !== confirmPassword) {
+      setError("Пароли не совпадают");
+      return;
+    }
+    setError("");
+    signUp({ email, username, password });
+  };
 
-    const handleClick = () => {
-        if (emailValue === "") {
-            setemailRequiredEror("Emeil обязательная поле");
-            return;
-        } else {
-            setemailRequiredEror("")
-        }
-
-        if (passwordValue === "") {
-            setPasswordRequiredEror ("Password обязательная поле");
-            return;
-        } else {
-            setPasswordRequiredEror("")
-        }
-
-        if (confirmPasswordValue === "") {
-            setConfirmPasswordRequiredEror ("обязательное поле");
-            return;
-        } else {
-             setConfirmPasswordRequiredEror("")
-        }
-
-        if (passwordValue !== confirmPasswordValue) {
-            setConfirmPasswordError("Пароли не совпадают");
-            return;
-        } else {
-            setConfirmPasswordError("")
-            signUp({
-                email: emailValue,
-                password: passwordValue,
-            });
-
-        }
-    };
-
-
-
-    return (
-        <Box paddingTop="50px">
-            <Container>
-                <Typography
-                    textAlign="center"
-                    variant="h2"
-                    fontWeight="700"
-                    paddingBottom="20px"
-                >
-                    Sign Up
-                </Typography>
-                <form>
-                    <Box
-                        display="flex"
-                        flexDirection="column"
-                        gap="20px"
-                        sx={{ width: "600px", margin: "0 auto" }}
-                    >
-                        <TextField
-                            value={emailValue}
-                            onChange={(e) => setEmailValue(e.target.value)}
-                            label="Email"
-                            type="email"
-                            variant="outlined"
-                            error={Boolean(emailRequiredEror)}
-                            helperText={emailRequiredEror}
-                        />
-                        <TextField
-                            value={passwordValue}
-                            onChange={(e) => setPasswordValue(e.target.value)}
-                            label="Password"
-                            type="password"
-                            variant="outlined"
-                            error={Boolean(passwordRequiredEror)}
-                            helperText={passwordRequiredEror}
-                        />
-                        <TextField
-                            value={confirmPasswordValue}
-                            onChange={(e) => setConfirmPasswordValue(e.target.value)}
-                            label="Confirm password"
-                            type="password"
-                            variant="outlined"
-                            error={Boolean(ConfirmpasswordRequiredEror) || Boolean(confirmPasswordError)}
-                            helperText={ConfirmpasswordRequiredEror||confirmPasswordError}
-                        />
-
-                        <Button onClick={handleClick} variant="contained">
-                            Save
-                        </Button>
-                    </Box>
-                </form>
-            </Container>
-        </Box>
-    );
+  return (
+    <Box padding="50px">
+      <Typography variant="h2" textAlign="center" paddingBottom="20px">
+        Sign Up
+      </Typography>
+      <Box display="flex" flexDirection="column" gap="20px" width="400px" margin="0 auto">
+        <TextField label="Email" value={email} onChange={e => setEmail(e.target.value)} />
+        <TextField label="Username" value={username} onChange={e => setUsername(e.target.value)} />
+        <TextField label="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+        <TextField label="Confirm Password" type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
+        {error && <Typography color="red">{error}</Typography>}
+        <Button variant="contained" onClick={handleClick}>Sign Up</Button>
+      </Box>
+    </Box>
+  );
 };
 
 export default SignUpPage;

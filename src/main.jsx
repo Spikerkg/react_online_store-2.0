@@ -9,15 +9,14 @@ import AuthContextProvider from '../Context/AuthContext/AuthContexProvider.jsx';
 
 
 createRoot(document.getElementById('root')).render(
+    <BrowserRouter>
   <AuthContextProvider>
     <ArticlesContextProvider>
       <ProductsContextProvider>
-        <BrowserRouter>
           <App />
-        </BrowserRouter>
       </ProductsContextProvider>
     </ArticlesContextProvider>
   </AuthContextProvider>
-
+</BrowserRouter>
 );
 

@@ -1,35 +1,91 @@
+import { createContext, useState } from "react";
 import axios from "axios";
-import { AuthContext } from "./AuthContext";
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const AuthContextProvider = (props) => {
+export const AuthContext = createContext();
 
-    const [token, setToken] = useState("")
+const AuthContextProvider = ({ children }) => {
+  const navigate = useNavigate();
+  const [token, setToken] = useState(() => localStorage.getItem("accessToken") || "");
+  const [userEmail, setUserEmail] = useState(() => localStorage.getItem("userEmail") || "");
+  const [userId, setUserId] = useState(() => localStorage.getItem("userId") || "");
+  const [authError, setAuthError] = useState("");
 
-    const signUp = async (NewUser) => {
-        try {
-            const {data} = axios.post("  http://localhost:3000/sign-up", NewUser);
-            setToken(data.accessToken)
-        } catch (e) {
-            console.log(e)
-        }
-    };
+  const signUp = async ({ email, username, password }) => {
+    try {
+      const { data } = await axios.post(
+        "https://owsch.pythonanywhere.com/api/auth/register/",
+        { email, username, password },
+        { headers: { "Content-Type": "application/json" } }
+      );
 
-    useEffect (() => {
-        if ( token !== "") {
-            localStorage.setItem ("accessToken", token);
+      setToken(data.accessToken);
+      setUserEmail(email);
+      setUserId(data.user?.id || "");
+      localStorage.setItem("accessToken", data.accessToken);
+      localStorage.setItem("userEmail", email);
+      if (data.user?.id) localStorage.setItem("userId", data.user.id);
+
+      setAuthError("");
+      console.log("Регистрация успешна!");
+      navigate("/");
+    } catch (e) {
+      if (e.response) {
+        
+        const msg = e.response.data.message || e.response.data.error || "Ошибка регистрации";
+        setAuthError(msg);
+      } else {
+        setAuthError("Ошибка сети или сервера");
+      }
+    }
+  };
+
+  const signIn = async ({ email, password }) => {
+    try {
+      const { data } = await axios.post(
+        "https://owsch.pythonanywhere.com/api/auth/login/",
+        { email, password },
+        { headers: { "Content-Type": "application/json" } }
+      );
+
+      setToken(data.accessToken);
+      setUserEmail(email);
+      setUserId(data.user?.id || "");
+      localStorage.setItem("accessToken", data.accessToken);
+      localStorage.setItem("userEmail", email);
+      if (data.user?.id) localStorage.setItem("userId", JSON.stringify(data.user.id));
+
+      setAuthError("");
+      console.log("Вход выполнен успешно!");
+      navigate("/"); 
+    } catch (e) {
+      if (e.response) {
+        if (e.response.status === 404) {
+          setAuthError("Пользователь с таким email не найден");
         } else {
-            localStorage.removeItem ("accessToken");
+          setAuthError(e.response.data.message || "Неверный email или пароль");
         }
-    }, [token]);
+      } else {
+        setAuthError("Ошибка сети или сервера");
+      }
+    }
+  };
 
-    return <AuthContext.Provider value={{
-        signUp,
-    }}>
-        {props.children}
+  const signOut = () => {
+    setToken("");
+    setUserEmail("");
+    setUserId("");
+    setAuthError("");
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userId");
+  };
+
+  return (
+    <AuthContext.Provider value={{ token, userEmail, userId, authError, signUp, signIn, signOut }}>
+      {children}
     </AuthContext.Provider>
+  );
 };
 
-
-
-export default AuthContextProvider
+export default AuthContextProvider;
