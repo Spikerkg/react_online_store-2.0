@@ -11,20 +11,20 @@ const ProductDetailsPage = () => {
   
 
     useEffect (()=> {
-    getProduct(Number(params.id)) 
+        getProduct(Number(params.id)); 
     }, []);
 
-    if (currentProducts === null) return <div>Загрузка...</div>
+    if (currentProducts === null) return <div>Загрузка...</div>;
 
 
     return <Box sx={{padding:"50px"}}> 
         <Container>
             <Box display="flex" justifyContent="space-between" gap="30px">
-            <ProductsImegesBlock product = { currentProducts} />
-            <ProductInformationBlock product={ currentProducts}/>   
+                <ProductsImegesBlock product = { currentProducts} />
+                <ProductInformationBlock product={ currentProducts}/>   
             </Box>
         </Container>
-            </Box>
-}
+    </Box>;
+};
 
 export default ProductDetailsPage;

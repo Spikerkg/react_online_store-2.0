@@ -1,3 +1,3 @@
 export const calcPriceWithDiscount = (oldPrice, discount) => {
-    return oldPrice - (oldPrice * discount / 100) 
+    return oldPrice - (oldPrice * discount / 100); 
 };

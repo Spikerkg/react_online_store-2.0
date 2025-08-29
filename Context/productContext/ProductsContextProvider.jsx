@@ -4,36 +4,36 @@ import { ProductsContext } from "./ProductsContext";
 
 const ProductsContextProvider = (props) => {
 
-    const [products, setProducts] = useState ([])
+    const [products, setProducts] = useState ([]);
     const [currentProducts, setCurrentProduct] = useState(null);
 
     const getProducts = async () => {
         try {
-            const {data} = await axios.get ("http://localhost:3000/Products");
-            setProducts(data)
+            const {data} = await axios.get ("https://owsch.pythonanywhere.com/api/products/");
+            setProducts(data);
         } catch (e) {
-            console.log (e)
+            console.log (e);
         }
     };
 
     const getProduct = async (currentid) => {
         try {
-            const {data} = await axios.get(`http://localhost:3000/Products/${currentid}`);
+            const {data} = await axios.get(`https://owsch.pythonanywhere.com/api/products/${currentid}`);
             setCurrentProduct (data);
         } catch(e){
-            console.log(e)
+            console.log(e);
         }
-    }
+    };
 
     return <ProductsContext.Provider value={{
-products,
-getProducts,
-currentProducts,
-getProduct,
+        products,
+        getProducts,
+        currentProducts,
+        getProduct,
 
     }}>
         {props.children}
-    </ProductsContext.Provider>
-}
+    </ProductsContext.Provider>;
+};
 
-export default ProductsContextProvider
+export default ProductsContextProvider;

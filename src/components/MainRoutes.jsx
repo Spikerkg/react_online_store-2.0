@@ -1,23 +1,25 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage";
 import ProductsPage from "../pages/ProductsPage/ProductsPage";
 import ProductDetailsPage from "../pages/ProductsDetailsPage/ProductsDetailsPage";
 import ArticlesDetailsPage from "../pages/HomePage/ArticlesDeteils/ArticlesDeteilsPage";
 import SignUpPage from "../pages/SignUpPage/SignUppage";
 import SignInPage from "../pages/SignInPage/SignInPage";
+import CartPage from "../pages/CartPage/CartPage";
 
 const MainRoutes = () => {
- return (
+    return (
         <Routes>
-        <Route path="/" element = {<HomePage/>} />
-        <Route path="/products" element={<ProductsPage/>}/>
-        <Route path="/products/:id" element={<ProductDetailsPage/>}/>
-        <Route path="/articles/:id" element={<ArticlesDetailsPage/>}/>
-        <Route path="/sign-up" element={<SignUpPage/>}/>
-        <Route path="/sign-in" element={<SignInPage/>}/>
+            <Route path="/" element = {<HomePage/>} />
+            <Route path="/products" element={<ProductsPage/>}/>
+            <Route path="/products/:id" element={<ProductDetailsPage/>}/>
+            <Route path="/articles/:id" element={<ArticlesDetailsPage/>}/>
+            <Route path="/sign-up" element={<SignUpPage/>}/>
+            <Route path="/sign-in" element={<SignInPage/>}/>
+            <Route path="/cart" element={<CartPage/>}/>
         </Routes>
     );
 };
    
 
-export default MainRoutes
+export default MainRoutes;

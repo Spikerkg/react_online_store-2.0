@@ -1,20 +1,20 @@
-import MainRoutes from "./components/MainRoutes"
-import "./global/reset.css"
-import Layout from "./components/layout"
+import MainRoutes from "./components/MainRoutes";
+import "./global/reset.css";
+import Layout from "./components/layout";
 
 
 
 function App() {
 
-  return (
-  <div>
+    return (
+        <div>
 
-    <Layout>
-      <MainRoutes/>
-    </Layout>
+            <Layout>
+                <MainRoutes/>
+            </Layout>
     
-  </div>
-  )
+        </div>
+    );
 }
 
-export default App
+export default App;

@@ -1,6 +1,6 @@
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import { useContext, useState } from "react";
-import { AuthContext } from "../../../Context/AuthContext/AuthContexProvider";
+import { AuthContext } from "../../../Context/AuthContext/AuthContextProvider";
 
 
 const SignInPage = () => {
